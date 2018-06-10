@@ -2,6 +2,7 @@ import React from 'react'
 import ElapsedTime from './elapsed-time'
 import Buttons from './buttons'
 
+import './styles.css'
 
 class Timer extends React.Component {
   constructor(props) {
