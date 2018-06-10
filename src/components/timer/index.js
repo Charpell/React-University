@@ -10,14 +10,38 @@ class Timer extends React.Component {
 
     this.state = {
       timingEvents: [],
+      nonce: 0
     }
+
+    this.poll = setInterval(this.tick, 1000)
+  }
+
+  tick = () => {
+    this.setState((prevState) => ({ nonce: prevState.nonce + 1 }))
+  }
+
+  addTimerEvent = () => {
+    this.setState({
+      timingEvents: [
+        ...this.state.timingEvents,
+        new Date()
+      ]
+    })
   }
 
   render() {
     return (
       <div className='container'>
-        <ElapsedTime />
-        <Buttons />
+
+        <ElapsedTime 
+          timingEvents={this.state.timingEvents}
+        />
+
+        <Buttons 
+          handleClick={this.addTimerEvent}
+          timingEvents={this.state.timingEvents}
+        />
+
       </div>
     )
   }
