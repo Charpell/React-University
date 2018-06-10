@@ -23,7 +23,7 @@ export default function CoinTable(props) {
       <tbody>
         {
           props.data.map(row => (
-            <tr>
+            <tr key={row.rank}>
               <td>{row.rank}</td>
               <td>{row.name}</td>
               <td>{row.symbol}</td>
