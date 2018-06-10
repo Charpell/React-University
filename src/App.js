@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="page-container">
         <h1>Boiler Plate</h1>
       </div>
     );
