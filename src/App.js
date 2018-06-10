@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react'
+import Timer from './components/timer'
 
-import './App.css';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Boiler Plate</h1>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div>
+      <Timer />
+    </div>
+  )
 }
-
-export default App;
