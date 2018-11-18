@@ -5,17 +5,46 @@ import './App.css';
 
 
 class App extends Component {
+  state = {
+    players : [{
+      name: "Guil",
+      id: 1
+    },
+    {
+      name: "Treasure",
+      id: 2
+    },
+    {
+      name: "Ashley",
+      id: 3
+    },
+    {
+      name: "James",
+      id: 4
+    }]
+  }
+
+  handleRemovePlayer = id => {
+    this.setState(prevState => {
+      return {
+        players: prevState.players.filter(p => p.id !== id)
+      }
+    })
+  }
+
   render() {
-    const { initialPlayers } = this.props;
+    const { players } = this.state;
     
     return (
       <div className="scoreboard">
-        <Header title="Scoreboard" totalPlayers={initialPlayers.length} />
+        <Header title="Scoreboard" totalPlayers={players.length} />
 
-        {initialPlayers.map(player => (
+        {players.map(player => (
           <Player 
             name={player.name}
+            id={player.id}
             key={player.id.toString()}
+            removePlayer={this.handleRemovePlayer}
           />
         ))}
       
@@ -38,6 +67,11 @@ const Player = (props) => {
   return (
     <div className="player">
       <span className="player-name">
+        <button 
+          className="remove-player" 
+          onClick={ () => props.removePlayer(props.id) }>
+            x
+        </button>
         { props.name }
       </span>
 
