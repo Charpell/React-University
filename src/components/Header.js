@@ -12,4 +12,8 @@ const Header = (props) => {
   );
 }
 
+Header.defaultProps = {
+  title: 'Scoreboard'
+}
+
 export default Header;
