@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+
+
 class App extends Component {
   render() {
+    const { initialPlayers } = this.props;
+    
     return (
       <div className="scoreboard">
-        <Header title="Scoreboard" totalPlayers={1} />
+        <Header title="Scoreboard" totalPlayers={initialPlayers.length} />
 
-        <Player name="Ebuka" score={50} />
-        <Player name="Guil" score={350} />
-        <Player name="John" score={50} />
-        <Player name="Ken" score={150} />
+        {initialPlayers.map(player => (
+          <Player 
+            name={player.name} 
+            score={player.score} 
+            key={player.id.toString()}
+          />
+        ))}
+      
       </div>
     );
   }
