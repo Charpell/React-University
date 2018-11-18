@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   // player id counter
-  playerId = 4;
+  playerId = 5;
 
   handleScoreChange = (index, delta) => {
     this.setState(prevState => ({
@@ -41,17 +41,33 @@ class App extends Component {
   }
   
   handleAddPlayer = name => {
-    this.setState({
-      players: [
-        ...this.state.players,
-        {
-          name,
-          score: 0,
-          id: this.prevPlayerId += 1
-        }
-      ]
+    console.log(this.state)
+    this.setState(prevState => {
+      return {
+        players: [
+          ...prevState.players,
+          {
+            name,
+            score: 0,
+            id: this.prevPlayerId += 1
+          }
+        ]
+      }
     })
   }
+
+  // Option 2: Add player with concat
+  handleAddPlayer2 = (name) => {
+    let newPlayer = {
+      name,
+      score: 0,
+      id: this.prevPlayerId += 1
+    };
+    this.setState( prevState => ({
+      players: prevState.players.concat(newPlayer)
+    }));
+  }
+
 
   handleRemovePlayer = id => {
     this.setState(prevState => {
