@@ -49,7 +49,10 @@ class App extends Component {
     
     return (
       <div className="scoreboard">
-        <Header title="Scoreboard" totalPlayers={players.length} />
+        <Header 
+          title="Scoreboard" 
+          players={players} 
+        />
 
         {players.map((player, index) => (
           <Player 
