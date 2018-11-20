@@ -4,6 +4,7 @@ import './App.css';
 
 import StudentForm from './components/StudentForm';
 import ErrorBoundary from './components/ErrorBoundary';
+import JSTeachers from './JSTeachers';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
 
         <ErrorBoundary>
           <StudentForm />
+          <JSTeachers />
         </ErrorBoundary>
       </div>
     );
