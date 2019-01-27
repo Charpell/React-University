@@ -7,7 +7,9 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Movies />
+      <main className="container">
+        <Movies />
+      </main>
     )
   }
 }
